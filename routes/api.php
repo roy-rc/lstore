@@ -10,7 +10,19 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 // Products API endpoints
-Route::apiResource('products', ProductController::class);
+Route::apiResource('products', ProductController::class)->names([
+    'index' => 'api.products.index',
+    'store' => 'api.products.store',
+    'show' => 'api.products.show',
+    'update' => 'api.products.update',
+    'destroy' => 'api.products.destroy',
+]);
 
 // Categories API endpoints
-Route::apiResource('categories', CategoryController::class);
+Route::apiResource('categories', CategoryController::class)->names([
+    'index' => 'api.categories.index',
+    'store' => 'api.categories.store',
+    'show' => 'api.categories.show',
+    'update' => 'api.categories.update',
+    'destroy' => 'api.categories.destroy',
+]);
